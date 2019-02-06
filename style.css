@@ -4,8 +4,13 @@ Description:  Customized theme for ESMG Quadrivium
 Author:       Maarten Visscher, original by Dutch Coding Company
 Author URI:   http://www.maartenvisscher.nl
 Template:     flocks
-Version:      2.0.0
+Version:      2.1.0
 */
+
+
+/* Note: this CSS file is currently not included on the page! */
+
+/* Color settings */
 
 .primary {
   color: #661fa7;
@@ -95,3 +100,4 @@ body .vc_btn3.vc_btn3-color-blue.vc_btn3-style-flat, .flocks-vc-row-container .v
 #user-navigation ul li a .cart-count {
   background: #661fa7;
 }
+
