@@ -1,25 +1,20 @@
 <?php
 /**
- * (c) Maarten Visscher 2018
- */
-
-
-/**
  * Enqueue stylesheet (https://codex.wordpress.org/Child_Themes).
  */
+add_action( 'wp_enqueue_scripts', 'quadrivium_enqueue_styles' );
 function quadrivium_enqueue_styles() {
     $parent_style = 'flocks-style';
 
+	// Enqueue Flocks stylesheet
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
-    /*
+	// Enqueue our stylesheet
     wp_enqueue_style( 'quadrivium',
         get_stylesheet_directory_uri() . '/style.css',
         array( $parent_style ),
         wp_get_theme()->get('Version')
     );
-    */
 }
-add_action( 'wp_enqueue_scripts', 'quadrivium_enqueue_styles' );
 
 
 /**
@@ -35,6 +30,7 @@ function quadrivium_remove_parent_functions() {
     remove_action('login_footer', 'flocks_wp_login_forget_pass');
 }
 add_action( 'wp_loaded', 'quadrivium_remove_parent_functions' );
+
 
 /**
  * Remove 'logged-out' class from body.

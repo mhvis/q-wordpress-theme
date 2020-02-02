@@ -1,103 +1,17 @@
 /*
-Theme Name:   Quadrivium
-Description:  Customized theme for ESMG Quadrivium
-Author:       Maarten Visscher, original by Dutch Coding Company
-Author URI:   http://www.maartenvisscher.nl
-Template:     flocks
-Version:      2.1.0
+Theme Name: Quadrivium
+Description: Customized theme for ESMG Quadrivium
+Author:  Maarten Visscher, original by Dutch Coding Company
+Author URI: http://www.maartenvisscher.nl
+Template: flocks
+Version: 2.2
 */
 
-
-/* Note: this CSS file is currently not included on the page! */
-
-/* Color settings */
-
-.primary {
-  color: #661fa7;
+/**
+ * Invisible 'for members' button fix.
+ */
+@media (max-width: 992px) {
+	.header-style-3 #main-menu #user-navigation ul li a {
+		color: #8e97ac;
+	}
 }
-
-.color-primary, .gears-testimonial-carousel .gears-testimonials-item .gears-testimonials-author .gears-testimonial-author-name, #bbpress-forums div.bbp-template-notice a,
-#bbpress-forums div.bbp-template-notice.info a, #bbpress-forums div.bbp-template-notice.info:before, .flocks .bbp-user-section > p:nth-child(1) a, .gears-login-wrap .login-password label:after,
-.gears-login-wrap .login-username label:after, .error-404.not-found .page-header .page-title, .error-404.not-found .page-header h3, .error-404.not-found .page-header p, .single #flocks-share-count, a, a:focus, a:hover, #user-navigation ul li a i.user-action-icon {
-  color: #661fa7;
-}
-
-.header-style-3 #main-menu ul#main-menu-ul li.menu-item a:hover,
-.header-style-4 #main-menu ul#main-menu-ul li.menu-item a:hover, .header-style-3 #main-menu ul#main-menu-ul li.menu-item.menu-item-has-children > a:hover:after,
-.header-style-4 #main-menu ul#main-menu-ul li.menu-item.menu-item-has-children > a:hover:after, .header-style-3.logged-out #main-menu .col-lg-2.col-md-2 #user-navigation ul li:first-of-type a:hover, .header-style-3.logged-out #main-menu .col-lg-2.col-md-2 #user-navigation ul li:nth-child(2) a:hover,
-.header-style-4.logged-out #main-menu .col-lg-2.col-md-2 #user-navigation ul li:first-of-type a:hover,
-.header-style-4.logged-out #main-menu .col-lg-2.col-md-2 #user-navigation ul li:nth-child(2) a:hover, #comments h2.comments-title .comments-title-headline span, #comments .comment-meta .comemnt-date:hover, #footer-style-3-social-media-list .item a:hover, #main-menu ul#main-menu-ul li.menu-item.menu-item-has-children > a:after, #user-navigation ul#nav-user-action-notification li a:hover,
-#user-navigation ul#nav-user-action-dropdown li a:hover{
-  color: rgb(247, 228, 255);
-}
-
-.header-color-wite{
-  color: #fff !important;
-}
-
-.header-color-wite h1, .header-color-wite h2, .header-color-wite h3{
-  color: #fff;
-}
-
-.border-primary, .nav-links .nav-previous a:hover, .nav-links .nav-next a:hover, input[type=text]:focus,
-input[type=tel]:focus,
-input[type=url]:focus,
-input[type=password]:focus,
-input[type=search]:focus,
-input[type=email]:focus,
-input[type=number]:focus,
-input[type=datetime]:focus,
-input[type=datetime-local]:focus,
-input[type=time]:focus,
-input[type=week]:focus,
-input[type=month]:focus,
-textarea:focus,
-select:focus, #site-footer-widgets input[type=text],
-#site-footer-widgets input[type=tel],
-#site-footer-widgets input[type=url],
-#site-footer-widgets input[type=password],
-#site-footer-widgets input[type=search],
-#site-footer-widgets input[type=email],
-#site-footer-widgets input[type=number],
-#site-footer-widgets input[type=datetime],
-#site-footer-widgets input[type=datetime-local],
-#site-footer-widgets input[type=time],
-#site-footer-widgets input[type=week],
-#site-footer-widgets input[type=month],
-#site-footer-widgets textarea,
-#site-footer-widgets select, .single .author-about, .menu-bar, .bx-pager .bx-pager-link.active, .flocks-vc-row-container .vc_pagination-color-grey.vc_pagination-style-outline .vc_active .vc_pagination-trigger,
-.flocks-vc-row-container .vc_pagination-color-grey.vc_pagination-style-outline .vc_pagination-trigger:hover, .flocks-vc-row-container .vc_toggle_active.vc_toggle_size_md.vc_toggle_simple .vc_toggle_icon, .gears-login-wrap .gears-login-links li.current, .gears-login-wrap .gears-login-links li:hover, .gears-login-wrap .login-password input[type=password]:focus,
-.gears-login-wrap .login-password input[type=text]:focus,
-.gears-login-wrap .login-username input[type=password]:focus,
-.gears-login-wrap .login-username input[type=text]:focus {
-  border-color: #661fa7;
-}
-
-.border-bottom-primary, .gears-recent-posts .gears-article-recent-posts:hover {
-  border-bottom-color: #661fa7;
-}
-
-.background-primary, #header-menu-toggle:hover .menu-bar, #header-menu-toggle.active:hover .menu-bar, .nav-links .nav-previous a:hover, .nav-links .nav-next a:hover, .entry-footer .edit-link a, #colophon.site-footer, .edit-link a,
-button,
-input[type=button],
-input[type=submit],
-.button,
-.subscription-toggle, #main-menu ul#main-menu-ul li.menu-item > ul.sub-menu li.menu-item a:hover, #main-menu ul#main-menu-ul li.menu-item > ul.sub-menu li.menu-item.current-menu-item a, .error-404.not-found .page-header .not-found-btn, .error-404.not-found .page-content .searchform label .searchsubmit, .dunhakdis-headings:after, article table th, #user-navigation ul#nav-user-action-notification > li:before, .widget.widget_tag_cloud > .tagcloud a:hover, .widget .widget-title:after, .custom .tp-bullet:hover, .custom .tp-bullet.selected, .gears-button.solid.primary, .gears-bp-groups-carousel-2 .member-count, .gears-recent-posts .gears-article-recent-posts:hover .entry-post-format-icon, body .vc_btn3.vc_btn3-color-blue,
-body .vc_btn3.vc_btn3-color-blue.vc_btn3-style-flat, .flocks-vc-row-container .vc_toggle_active.vc_toggle_size_md.vc_toggle_simple .vc_toggle_icon, .gears-pricing-table.popular .gears-pricing-table-price-label, span.gears-dropcap-letter.circular {
-  background-color: #661fa7;
-}
-
-.header-style-3 #main-menu .col-lg-2.col-md-2 #user-navigation ul li:hover a i,
-.header-style-4 #main-menu .col-lg-2.col-md-2 #user-navigation ul li:hover a i {
-  color: #661fa7;
-}
-
-.header-style-4 #user-navigation ul li:hover a i {
-  color: #661fa7;
-}
-
-#user-navigation ul li a .notification-count,
-#user-navigation ul li a .cart-count {
-  background: #661fa7;
-}
-
