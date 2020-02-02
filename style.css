@@ -4,8 +4,9 @@ Description: Customized theme for ESMG Quadrivium
 Author:  Maarten Visscher, original by Dutch Coding Company
 Author URI: http://www.maartenvisscher.nl
 Template: flocks
-Version: 2.2
+Version: 2.3
 */
+
 
 /**
  * Invisible 'for members' button fix.
@@ -14,4 +15,13 @@ Version: 2.2
 	.header-style-3 #main-menu #user-navigation ul li a {
 		color: #8e97ac;
 	}
+}
+
+
+/**
+ * Remove duplicate Flocks/VisualComposer grid system 15px padding.
+ */
+.flocks-vc-row-container {
+	padding-right: 0;
+	padding-left: 0;
 }
