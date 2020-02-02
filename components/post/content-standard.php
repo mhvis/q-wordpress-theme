@@ -25,7 +25,6 @@
 						<?php the_post_thumbnail( 'flocks-featured-image' ); ?>
 					</a>
 				</div>
-
 			<?php else: ?>
 
 				<div class="entry-thumbnail">

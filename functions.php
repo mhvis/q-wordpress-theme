@@ -36,3 +36,15 @@ function quadrivium_remove_parent_functions() {
 }
 add_action( 'wp_loaded', 'quadrivium_remove_parent_functions' );
 
+/**
+ * Remove 'logged-out' class from body.
+ * 
+ * This fixes the 'for members' button style in upper right corner.
+ */
+function quadrivium_remove_logged_out_class(array $classes) {
+    if (in_array('logged-out', $classes)) {
+		unset( $classes[array_search('logged-out', $classes)] );
+    }
+	return $classes;
+}
+add_filter( 'body_class', 'quadrivium_remove_logged_out_class', 1000 );
