@@ -9,134 +9,85 @@
 
 ?>
 
+<?php if (! is_single() ) { ?>
+<div id="post-<?php the_ID(); ?>" class="q-entry">
+	<div class="q-entry-thumbnail">
+		<?php if ( '' != get_the_post_thumbnail() ) : ?>
+		<?php the_post_thumbnail( 'flocks-featured-image' ); ?>
+		<?php endif; ?>	
+	</div>
+	<div class="q-entry-body">
+		<?php the_title( '<h2 class="q-entry-title">', '</h2>' ); ?>
+		<div class="q-entry-excerpt"><?php the_excerpt(); ?></div>
+		<a href="<?php echo esc_url( the_permalink() ); ?>" title="<?php echo esc_attr( the_title() ); ?>" class="q-entry-link stretched-link">
+			<?php echo WPGlobus_Filters::filter__text("{:en}More info{:}{:nl}Meer info{:}"); ?> &raquo;
+		</a>
+	</div>
+</div>
+
+<?php } else { /* is_single() === true */ ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header has-post-thumbnail">
 
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
-			<?php /*
-			<div class="entry-post-format">
-				<span class="fa fa-file-text-o"></span>
-			</div>
-			*/ ?>
-			<?php if ( ! is_single() ) : ?>
 
-				<div class="entry-thumbnail">
-					<a href="<?php echo esc_url( the_permalink() ); ?>" title="<?php echo esc_attr( the_title() ); ?>">
-						<?php the_post_thumbnail( 'flocks-featured-image' ); ?>
-					</a>
-				</div>
-
-			<?php else: ?>
-
-				<div class="entry-thumbnail">
-					<?php the_post_thumbnail( 'flocks-featured-image' ); ?>
-				</div>
-
-			<?php endif; ?>
+		<div class="entry-thumbnail">
+			<?php the_post_thumbnail( 'flocks-featured-image' ); ?>
+		</div>
 
 		<?php endif; ?>
 		
-		<?php /* The inline style is to remove the style imposed by CSS file. */ ?>
-		<h2 class="entry-title">
-			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"
-					style="font-size: 30px; font-weight: 500; color: #661fa7;">
-				<?php the_title(); ?>
-			</a>
-		</h2>
-
-		<?php /*
-		<div class="entry-meta hidden-xs">
-			<div class="entry-information">
-				<div class="row">
-					<div class="col-sm-9">
-						<div class="entry-meta-author">
-						 	<?php echo get_avatar( $post->post_author, 25 ); ?>
-								<?php flocks_posted_on(); ?>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<?php if ( is_single() ) { ?>
-							<div class="pull-right">
-								<span class="fa fa-share-alt"></span>
-								<span data-url="<?php echo esc_url( the_permalink() ); ?>" id="flocks-share-count" class="flocks-share-count-number">
-									-
-								</span>
-							</div>
-						<div class="clearfix"></div>
-						<?php } else  { ?>
-							<div class="pull-right">
-								<a href="<?php echo esc_url( the_permalink() ); ?>" title="<?php esc_attr( the_title() ); ?>">
-									<span class="archive-share-icon fa fa-share-alt"></span>
-								</a>
-							</div>
-						<?php } ?>
-					</div>
-				</div>
-			</div>
-			<?php
-				if ( is_single() ) {
-					// Display social media link.
-					flocks_social_link();
-				}
-			?>
-
-		</div><!-- .entry-meta -->
-		*/ ?>
-
+		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+		
 	</header>
 
 	<header class="entry-header screen-reader-text">
-		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
-
-		if ( 'post' === get_post_type() ) : ?>
-		<?php
-		endif; ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>
-
+	
 	<div class="entry-content">
+		<?php if ( has_excerpt( $post->ID ) ) { ?>
+		<div class="entry-excerpt">
+			<?php the_excerpt(); ?>
+		</div>
+		<?php } ?>
+		
 		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Read More %s <span class="meta-nav fa fa-caret-right"></span>', 'flocks' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+				  the_content( sprintf(
+					  /* translators: %s: Name of current post. */
+					  wp_kses( __( 'Read More %s <span class="meta-nav fa fa-caret-right"></span>', 'flocks' ), array( 'span' => array( 'class' => array() ) ) ),
+					  the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				  ) );
 		?>
 		<div class="clear-fix"></div>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'flocks' ),
-				'after'  => '</div>',
-			) );
+				  wp_link_pages( array(
+					  'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'flocks' ),
+					  'after'  => '</div>',
+				  ) );
 		?>
 		<div class="clear-fix"></div>
 	</div>
-
-	<?php if ( is_single() ) { ?>
-
-		<div class="entry-meta-category">
-			<?php
-				if ( 'post' === get_post_type() ) {
-					/* translators: used between list items, there is a space after the comma */
-					$categories_list = get_the_category_list( esc_html__( ', ', 'flocks' ) );
-					if ( $categories_list && flocks_categorized_blog() ) {
-						printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'flocks' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-					}
-
-					/* translators: used between list items, there is a space after the comma */
-					$tags_list = get_the_tag_list( '', esc_html__( ', ', 'flocks' ) );
-					if ( $tags_list ) {
-						printf( '<br><span class="tags-links">' . esc_html__( 'Tagged in %1$s', 'flocks' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-					}
-				}
-			?>
-		</div>
-
-	<?php } ?>
+	
+	<div class="entry-meta-category">
+		<?php
+				  if ( 'post' === get_post_type() ) {
+					  /* translators: used between list items, there is a space after the comma */
+					  $categories_list = get_the_category_list( esc_html__( ', ', 'flocks' ) );
+					  if ( $categories_list && flocks_categorized_blog() ) {
+						  printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'flocks' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+					  }
+					  
+					  /* translators: used between list items, there is a space after the comma */
+					  $tags_list = get_the_tag_list( '', esc_html__( ', ', 'flocks' ) );
+					  if ( $tags_list ) {
+						  printf( '<br><span class="tags-links">' . esc_html__( 'Tagged in %1$s', 'flocks' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+					  }
+				  }
+		?>
+	</div>
 
 </article><!-- #post-## -->
+<?php } ?>

@@ -4,7 +4,8 @@ Description: Customized theme for ESMG Quadrivium
 Author:  Maarten Visscher, original by Dutch Coding Company
 Author URI: http://www.maartenvisscher.nl
 Template: flocks
-Version: 2.3
+Version: 2.5
+Text Domain: quadrivium
 */
 
 
@@ -19,9 +20,99 @@ Version: 2.3
 
 
 /**
- * Remove duplicate Flocks/VisualComposer grid system 15px padding.
+ * Prevent line break in copyright notice.
  */
-.flocks-vc-row-container {
-	padding-right: 0;
-	padding-left: 0;
+#site-copyright div {
+	width: 100%;
+}
+
+
+/**
+ * White header text.
+ */
+.header-color-wite, .header-color-wite h1, .header-color-wite h2, .header-color-wite h3 {
+	color: #ffffff;
+}
+.header-style-3 #main-menu ul#main-menu-ul li.menu-item a:hover, .header-style-3 #main-menu ul#main-menu-ul li.menu-item.menu-item-has-children > a:hover:after, .header-style-3.logged-out #main-menu .col-lg-2.col-md-2 #user-navigation ul li:first-of-type a:hover {
+	color: #ffffff;
+}
+
+
+/**
+ * No underline in the menu.
+ */
+#main-menu a:hover {
+	text-decoration: none;
+}
+
+
+/**
+ * (?)
+ */
+.content-full-width {
+	max-width: 875px;
+	margin: 0 auto;
+	width: auto;
+	float: none;
+}
+
+/**
+ * Custom posts overview page.
+ */
+.q-entry {
+	position: relative;
+	margin-bottom: 30px;
+	background-color: #eeeeee;
+}
+
+.q-entry-thumbnail {
+/* 	margin-bottom: 15px; */
+}
+
+.q-entry-thumbnail img {
+	width: 100%;
+	height: auto;
+}
+
+.q-entry-body {
+	padding: 15px;
+	font-size: 16px;
+}
+
+.q-entry-title {
+	margin-bottom: 20px;
+	font-size: 24px;
+}
+
+.q-entry-excerpt {
+	font-weight: 600;
+	color: #595f6f;
+}
+
+.q-entry-link {
+	color: #595f6f;
+}
+
+.q-entry-link:hover {
+	color: #595f6f;
+}
+
+
+/**
+ * Bootstrap stretched link.
+ * 
+ * See: https://getbootstrap.com/docs/4.4/utilities/stretched-link/
+ */
+.stretched-link::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	/* Just in case `pointer-events: none` is set on a parent */
+	pointer-events: auto;
+	content: "";
+	/* IE10 bugfix, see https://stackoverflow.com/questions/16947967/ie10-hover-pseudo-class-doesnt-work-without-background-color */
+	background-color: rgba(0, 0, 0, 0);
 }
