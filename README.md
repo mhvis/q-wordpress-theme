@@ -2,9 +2,9 @@
 
 [Flocks](https://themeforest.net/item/flocks-business-social-networking-and-community-wordpress-theme/19379198) child theme to provide:
 
-* Color #661fa7
 * 'For members' login button
 * Remove unused components from post page
+* Custom post overview page
 
 ## Development
 
